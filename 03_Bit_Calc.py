@@ -27,10 +27,10 @@ def num_check(question, low):
         try:
 
             #ask user to enter a number
-            response = (input(question))
+            response = int(input(question))
 
             #checks number is more than zero
-            if response > low:
+            if response >= low:
                 return response
                                
 
@@ -63,14 +63,23 @@ def user_choice():
             print("Please choose a vaild file type in the form of an integer, text or image")
             print()
 
-data_type = user_choice()
-print("You Chose", data_type)
+keep_going = " "
+while keep_going == " ":
+    print()
+    var_integer = num_check("Enter an integer: ", 0)
+    print()
 
-print()
+    image_width = num_check("Image width? ", 1)
+    print()
+    image_height = num_check("Image height? ", 1)
 
-keep_going = ""
-while keep_going =="":
+    data_type = user_choice()
+    print("You Chose", data_type)
 
-    keep_going = input("Press <enter> for an integer or any key for an image")
+    if data_type == "integer":
+            var_integer = num_check("Enter an integer: ", 0)
 
-print()
+    elif data_type == "image":
+        image_width = num_check("Image width? ", 1)
+        print()
+        image_height = num_check("Image height? ", 1)
