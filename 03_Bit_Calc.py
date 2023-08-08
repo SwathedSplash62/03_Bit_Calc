@@ -15,7 +15,25 @@ def statement_generator(text, decoration):
 
     return ""
 
-statement_generator("Bit Calcuator for Integers, Text & Immages", "-")
+def user_choice():
+
+    valid = False
+    while not valid:
+
+        response = input("File type (integer / text / image): ").lower()
+
+        if response == "text" or response == "t" or response == "txt":
+            return "Text"
+
+        if response == "integer" or response == "int":
+            return "An Integer"
+
+        if response == "image" or response == "P" or response == "img":
+            return "An Image"
+
+        else:
+            print("Please choose a vaild file type in the form of an integer, text or image")
+            print()
 
 def num_check(question, low):
     valid = False
@@ -43,43 +61,22 @@ def num_check(question, low):
                  print(error)
                  print()
 
-def user_choice():
 
-    valid = False
-    while not valid:
-
-        response = input("File type (integer / text / image): ").lower()
-
-        if response == "text" or response == "t" or response == "txt":
-            return "Text"
-
-        if response == "integer" or response == "int":
-            return "An Integer"
-
-        if response == "image" or response == "P" or response == "img":
-            return "An Image"
-
-        else:
-            print("Please choose a vaild file type in the form of an integer, text or image")
-            print()
+statement_generator("Bit Calcuator for Integers, Text & Images", "-")
 
 keep_going = " "
 while keep_going == " ":
-    print()
-    var_integer = num_check("Enter an integer: ", 0)
-    print()
-
-    image_width = num_check("Image width? ", 1)
-    print()
-    image_height = num_check("Image height? ", 1)
 
     data_type = user_choice()
     print("You Chose", data_type)
 
     if data_type == "integer":
-            var_integer = num_check("Enter an integer: ", 0)
+        var_integer = num_check("Enter an integer: ", 0)
 
     elif data_type == "image":
         image_width = num_check("Image width? ", 1)
         print()
         image_height = num_check("Image height? ", 1)
+
+    else:
+        var_text = input("Enter some text: ")
