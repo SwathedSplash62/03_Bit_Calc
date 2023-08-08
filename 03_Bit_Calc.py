@@ -32,7 +32,7 @@ def user_choice():
             return "An Image"
 
         else:
-            print("Please choose a vaild file type in the form of an integer, text or image")
+            print("Please choose a valid file type in the form of an integer, text or image")
             print()
 
 def num_check(question, low):
@@ -62,7 +62,53 @@ def num_check(question, low):
                  print()
 
 
-statement_generator("Bit Calcuator for Integers, Text & Images", "-")
+def text_bits():
+
+    print()
+    var_text = input("Enter some text: ")
+
+    var_length = len(var_text)
+    num_bits = 8 * var_length
+
+    print()
+    print("\'{}\' has {} characters . . .".format(var_text, var_length))
+    print("# of bits is {} x 8 . . .".format(var_length))
+    print("We need {} bits to represent {}".format(num_bits, var_length))
+    print()
+
+    return ""
+
+def image_bits():
+
+    image_width = num_check("Image width? ", 1)
+    image_height = num_check("Image height? ", 1)
+
+    num_pixels = image_width * image_height
+
+    num_bits = num_pixels * 24
+
+    print()
+    print("# of pixels = {} x {} = {}".format(image_height, image_width, num_pixels))
+
+    print("# bits = {} x 24 = {}". format(num_bits, num_bits))
+    return ""
+
+def int_bits():
+
+    var_integer = num_check("Please enter an integer: ", 0)
+
+    var_binary = "{0:b}".format(var_integer)
+
+    num_bits = len(var_binary)
+
+    print()
+    print("{} in binary is {}".format(var_integer, var_binary))
+    print("# of bits is {}".format(num_bits))
+    print()
+
+    return ""
+
+statement_generator("Bit Calculator for Integers, Text & Images", "-")
 
 keep_going = " "
 while keep_going == " ":
@@ -80,3 +126,5 @@ while keep_going == " ":
 
     else:
         var_text = input("Enter some text: ")
+
+
