@@ -25,12 +25,17 @@ def user_choice():
         if response == "text" or response == "t" or response == "txt":
             return "Text"
 
-        if response == "integer" or response == "int":
-            return "An Integer"
+        elif response == "integer" or response == "int":
+            return "integer"
 
-        if response == "image" or response == "P" or response == "img":
-            return "An Image"
-
+        elif response == "image" or response == "p" or response == "img":
+            return "image"
+        elif response == "i":
+            int_image = input("press <enter> for an image or any key for an integer")
+            if int_image == "":
+                return "image"
+            else:
+                return "integer"
         else:
             print("Please choose a valid file type in the form of an integer, text or image")
             print()
@@ -58,8 +63,8 @@ def num_check(question, low):
                 print()
 
         except ValueError:
-                 print(error)
-                 print()
+            print(error)
+            print()
 
 
 def text_bits():
@@ -110,21 +115,19 @@ def int_bits():
 
 statement_generator("Bit Calculator for Integers, Text & Images", "-")
 
-keep_going = " "
-while keep_going == " ":
+keep_going = ""
+while keep_going == "":
 
     data_type = user_choice()
     print("You Chose", data_type)
 
     if data_type == "integer":
-        var_integer = num_check("Enter an integer: ", 0)
+        int_bits()
 
     elif data_type == "image":
-        image_width = num_check("Image width? ", 1)
-        print()
-        image_height = num_check("Image height? ", 1)
+        image_bits()
 
     else:
-        var_text = input("Enter some text: ")
+        text_bits()
 
 
