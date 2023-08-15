@@ -30,6 +30,7 @@ def user_choice():
 
         elif response == "image" or response == "p" or response == "img":
             return "image"
+
         elif response == "i":
             int_image = input("press <enter> for an image or any key for an integer")
             if int_image == "":
@@ -130,4 +131,9 @@ while keep_going == "":
     else:
         text_bits()
 
+    print()
+    keep_going = input("Press <enter> to continue or any key to quit")
 
+
+print()
+print("Thanks for using the Calculator for Integers, Text & Images")
