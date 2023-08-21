@@ -2,7 +2,6 @@
 
 # Puts series of symbols at start and end of text (for emphasis)
 def statement_generator(text, decoration):
-
     # Make string with five characters
     ends = decoration * 5
 
@@ -15,8 +14,22 @@ def statement_generator(text, decoration):
 
     return ""
 
-def user_choice():
 
+def instructions():
+    statement_generator("Instructions / Information", "=")
+    print()
+    print("Please choose a data type (image / text / integer)")
+    print()
+    print("This program, assumes that images are being repressented in 24 bit color (ie: 24 bits per pixel). For text "
+          "we assume that ascii encoding is being used (8 bits per character).")
+    print()
+    print("Complete as many calculations as necessary, pressing <enter> at the end of each calculation or any key to "
+          "quit")
+    print()
+    return ""
+
+
+def user_choice():
     valid = False
     while not valid:
 
@@ -25,10 +38,10 @@ def user_choice():
         if response == "text" or response == "t" or response == "txt":
             return "Text"
 
-        elif response == "integer" or response == "int":
+        elif response == "integer" or response == "int" or response == "integer":
             return "integer"
 
-        elif response == "image" or response == "p" or response == "img":
+        elif response == "img" or response == "p" or response == "image":
             return "image"
 
         elif response == "i":
@@ -41,24 +54,24 @@ def user_choice():
             print("Please choose a valid file type in the form of an integer, text or image")
             print()
 
+
 def num_check(question, low):
     valid = False
     while not valid:
 
-        error = "Please enter something that is more than "
-        "(or equal to) {}".format(low)
+        error = "Please enter something that is more than (or equal to {})".format(low)
 
         try:
 
-            #ask user to enter a number
+            # ask user to enter a number
             response = int(input(question))
 
-            #checks number is more than zero
+            # checks number is more than zero
             if response >= low:
                 return response
-                               
 
-            #Outputs error if input is invalid
+
+            # Outputs error if input is invalid
             else:
                 print(error)
                 print()
@@ -69,7 +82,6 @@ def num_check(question, low):
 
 
 def text_bits():
-
     print()
     var_text = input("Enter some text: ")
 
@@ -84,8 +96,8 @@ def text_bits():
 
     return ""
 
-def image_bits():
 
+def image_bits():
     image_width = num_check("Image width? ", 1)
     image_height = num_check("Image height? ", 1)
 
@@ -96,11 +108,11 @@ def image_bits():
     print()
     print("# of pixels = {} x {} = {}".format(image_height, image_width, num_pixels))
 
-    print("# bits = {} x 24 = {}". format(num_bits, num_bits))
+    print("# bits = {} x 24 = {}".format(num_bits, num_bits))
     return ""
 
-def int_bits():
 
+def int_bits():
     var_integer = num_check("Please enter an integer: ", 0)
 
     var_binary = "{0:b}".format(var_integer)
@@ -114,7 +126,14 @@ def int_bits():
 
     return ""
 
+
+# Main Routine goes here
+
 statement_generator("Bit Calculator for Integers, Text & Images", "-")
+
+first_time = input("Press <enter> to see the instructions or any key to continue")
+if first_time == "":
+    instructions()
 
 keep_going = ""
 while keep_going == "":
@@ -133,7 +152,6 @@ while keep_going == "":
 
     print()
     keep_going = input("Press <enter> to continue or any key to quit")
-
 
 print()
 print("Thanks for using the Calculator for Integers, Text & Images")
